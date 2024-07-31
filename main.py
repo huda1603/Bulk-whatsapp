@@ -1,6 +1,17 @@
 from colorama import Fore, init
-import time, os, webbrowser, urllib.parse, pyautogui
+import time, os, webbrowser, urllib.parse, pyautogui, platform
 init(autoreset=True)
+
+def userPlatform():
+    platforms = platform.system()
+    if platforms == "Windows" or platforms == "Linux":
+        shortcut = ["ctrl", "alt"]
+    elif platforms == "Darwin":
+        shortcut = ["cmd", "cmd"]
+    else:
+        print(Fore.LIGHTBLUE_EX + "Program Hanya dapat dijalankan di platform Windows, Linux dan MacOS")
+        exit()
+    return shortcut    
 
 def openFileNumber(listNumber):
     lenNumProgress = 0
@@ -76,13 +87,14 @@ def pesanFull(pesan_list):
     return textparse
 
 def main():
+    platforms = userPlatform()
     file_config, pesan_list = configuration()
     numberParsingConfig, Jeda_Waktu = file_config.get('PathFileNumber', 'Kosong'), file_config.get('Jeda_Waktu', 'Kosong')
     listNumber, lengthNumber = openFileNumber(numberParsingConfig)
     Jeda_Waktu = int(Jeda_Waktu) - 9
-    if Jeda_Waktu < 5:
-        print(Fore.LIGHTBLUE_EX + "Jeda Waktu Dibawah Batas Min.14 Detik, Otomatis Diubah Default Menjadi 14 Detik")
-        Jeda_Waktu = 14 - 9
+    if Jeda_Waktu < 6:
+        print(Fore.LIGHTBLUE_EX + "Jeda Waktu Dibawah Batas Min.15 Detik, Otomatis Diubah Default Menjadi 15 Detik")
+        Jeda_Waktu = 15 - 9
     Pesan = pesanFull(pesan_list)
 
     webbrowser.open("https://drive.google.com/file/d/1AODLFDje6OAg_D9J8eWhxhdO-nAkJSWj/view?usp=drivesdk", new=0, autoraise= False)
@@ -94,18 +106,18 @@ def main():
         print(Fore.CYAN + f"Mengirim Pesan Ke {i}|({lengthNumber}/{len(listNumber)})")    
         webbrowser.open("https://wa.me/" + i + "?text=" + Pesan, new=0, autoraise= False)
         time.sleep(5)
-        pyautogui.hotkey('alt', 'tab')
+        pyautogui.hotkey(platforms[1], 'tab')
         time.sleep(1)
-        pyautogui.hotkey('ctrl', 'w')
+        pyautogui.hotkey(platforms[0], 'w')
         time.sleep(1)
         webbrowser.open("https://wa.me/" + i + "?text=" + Pesan, new=0, autoraise= False)
         time.sleep(Jeda_Waktu-1)
         pyautogui.press('enter')
         print("Berhasil Mengirim!")
         time.sleep(1)
-        pyautogui.hotkey('alt', 'tab')
+        pyautogui.hotkey(platforms[1], 'tab')
         time.sleep(1)
-        pyautogui.hotkey('ctrl', 'w')
+        pyautogui.hotkey(platforms[0], 'w')
         print("Jeda Waktu...")
         time.sleep(1)
     print(Fore.LIGHTRED_EX + "Program Selesai!")
