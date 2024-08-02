@@ -1,11 +1,31 @@
-PathFileNumber = "PATH FILE TXT YANG BERISI KUMPULAN NOMOR, JIKA FILE ANDA CSV, CUKUP GANTI EKSTENSINYA MENJADI TXT"
-Pesan = (
-MASUKKAN ATAU PASTE PESAN DI DALAM KURUNG INI
-PESAN YANG DIMASUKKAN JUGA BISA BERJARAK
-SEPERTI INI
+PathFileNumber = "PATH FILE TXT"
+Pesan = ("
+MASUKKAN PESAN DI ANTARA 2 KURUNG STRING INI
+")
+Jeda_Waktu = "JEDA DALAM FORMAT DETIK CUKUP MASUKKAN ANGKA SAJA"
+One_Sender = "CUKUP MASUKKAN YA/TIDAK"
 
-HALO, APA KABAR
+##PETUNJUK##
+#PathFileNumber:
+PathFileNumber adalah path file .txt yang berisi kumpulan nomor telepon. Pastikan nomor-nomor tersebut diawali dengan simbol '+' agar program dapat mengenalinya. contoh seperti ini +62 XXX-XXXX-XXX, atau juga bisa seperti ini +62XXXXXXXXXX.
+Jika file nomor dalam format CSV/Excel, cukup letakkan List Nomornya di kolom paling pertama(A) dan ubah ekstensi filenya menjadi .txt.
 
-SEMOGA LEKAS SEMBUH!
-)
-Jeda_Waktu = "DURASI DETIK JEDA SETELAH PESAN DIKIRIM, DURASI JEDA MINIMAL 15 DETIK"
+#Pesan:
+Pesan adalah teks yang ingin kamu kirimkan. Kamu dapat memasukkan atau menempelkan pesan tersebut di dalam kurung yang disediakan.
+
+Pesan yang berjarak seperti ini juga dapat dikenali dan diterima oleh program.
+contoh:
+Pesan = ("
+Hi, Salam Kenal
+
+Perkenalkan Namaku Huda
+
+Asal Dari ...
+")
+
+#Jeda_Waktu:
+Jeda_Waktu adalah waktu jeda dalam format detik. Cukup masukkan angka saja untuk menentukan jeda antara pengiriman pesan ke nomor-nomor berikutnya.
+Contoh: jika kamu ingin memberikan jeda 16 detik, cukup masukkan angka 16.
+minimal jeda waktu adalah 15 detik, jika kamu memasukkan dibawah 15, maka tidak akan diterima program dan otomatis dialihkan menjadi default 15 detik.
+
+#One_Sender:
