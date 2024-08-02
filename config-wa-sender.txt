@@ -34,7 +34,7 @@ Masukkan "YA" jika pesan yang kamu buat langsung muncul di text box chat WhatsAp
 Masukkan "TIDAK" jika kamu ingin program mengulang tautan jika pesan tidak muncul di text box chat WhatsApp saat pertama kali tautan dibuka.
 cara menentukan OPSI YA/TIDAK:
 cobalah menekan tautan ini
-https://wa.me/6285751991314?text=Halo Tes
+https://wa.me/62XXXXXXXXXX?text=Halo Tes <-- GANTI BAGIAN X NYA DENGAN NOMOR KAMU
 apakah setelah menekan tautan diatas, langsung muncul "Halo Tes" pada textbox whatsapp kamu?
 Jika ya kamu bisa memilih Opsi One_Sender = "YA", namun jika tidak sebaiknya kamu memilih TIDAK
 jadi untuk opsi TIDAK adalah program akan membuka tautan sebanyak 2 kali untuk 1 nomor, namun untuk total durasi jedanya tetap sama seperti yang kamu masukkan.
