@@ -32,6 +32,17 @@ def openFileNumber(listNumber):
     print("Selesai!")
     return realDataNum, lenNumProgress==0
 
+def onceSender(Jeda_Waktu, oneAuthenticationP):
+    if oneAuthenticationP.upper() == "YA":
+        JedaChangeTab = 2
+        JedaAfterOpenWA = int(Jeda_Waktu / JedaChangeTab)
+        JedaAfterENTER = Jeda_Waktu - (JedaAfterOpenWA + (JedaChangeTab**2))
+        return JedaChangeTab, JedaAfterOpenWA, JedaAfterENTER
+    else:
+        JedaChangeTab = 1
+        JedaAfterOpenWA = 5
+        return JedaChangeTab, JedaAfterOpenWA
+
 def configuration():
     print(Fore.CYAN + "Membaca Files config-wa-sender.txt...")
     with open('config-wa-sender.txt', 'r', encoding='utf-8') as file:
@@ -61,10 +72,17 @@ def configuration():
             if Parsing:
                 jeda_waktu0 = line.split('=')[0].strip().strip('"')
                 Data[jeda_waktu0] = jeda_waktu
+
+        elif line.startswith("One_Sender"):
+            oneAuthentication = line.split('=')[1].strip().strip('"')
+            if Parsing:
+                oneAuthentication0 = line.split('=')[0].strip().strip('"')
+                Data[oneAuthentication0] = oneAuthentication
                 break
             
         if pesan_start:
-            if line.strip() == ")":
+            if line.strip() == '")':
+                pesan_start = False
                 continue
             Pesan.append(line.strip())
             
@@ -89,12 +107,16 @@ def pesanFull(pesan_list):
 def main():
     platforms = userPlatform()
     file_config, pesan_list = configuration()
-    numberParsingConfig, Jeda_Waktu = file_config.get('PathFileNumber', 'Kosong'), file_config.get('Jeda_Waktu', 'Kosong')
+    numberParsingConfig, Jeda_Waktu, oneAuthenticationP = file_config.get('PathFileNumber', 'Kosong'), file_config.get('Jeda_Waktu', 'Kosong'), file_config.get('One_Sender', 'Kosong')
     listNumber, lengthNumber = openFileNumber(numberParsingConfig)
-    Jeda_Waktu = int(Jeda_Waktu) - 9
-    if Jeda_Waktu < 6:
+    Jeda_Waktu = int(Jeda_Waktu)
+    if oneAuthenticationP.upper() == "YA":
+        JedaChangeTab, JedaAfterOpenWA, JedaAfterENTER = onceSender(Jeda_Waktu, oneAuthenticationP)
+    else:
+        JedaChangeTab, JedaAfterOpenWA = onceSender(Jeda_Waktu, oneAuthenticationP)
+    if Jeda_Waktu < 15:
         print(Fore.LIGHTBLUE_EX + "Jeda Waktu Dibawah Batas Min.15 Detik, Otomatis Diubah Default Menjadi 15 Detik")
-        Jeda_Waktu = 15 - 9
+        Jeda_Waktu = 15 - 9    
     Pesan = pesanFull(pesan_list)
 
     webbrowser.open("https://drive.google.com/file/d/1AODLFDje6OAg_D9J8eWhxhdO-nAkJSWj/view?usp=drivesdk", new=0, autoraise= False)
@@ -105,11 +127,20 @@ def main():
         lengthNumber += 1
         print(Fore.CYAN + f"Mengirim Pesan Ke {i}|({lengthNumber}/{len(listNumber)})")    
         webbrowser.open("https://wa.me/" + i + "?text=" + Pesan, new=0, autoraise= False)
-        time.sleep(5)
+        time.sleep(JedaAfterOpenWA)
+        if oneAuthenticationP.upper() == "YA":
+            pyautogui.press('enter')
+            print("Berhasil Mengirim!")
+            time.sleep(JedaAfterENTER)
+            print("Jeda Waktu...")
         pyautogui.hotkey(platforms[1], 'tab')
-        time.sleep(1)
+        time.sleep(JedaChangeTab)
         pyautogui.hotkey(platforms[0], 'w')
-        time.sleep(1)
+        time.sleep(JedaChangeTab)
+        if oneAuthenticationP.upper() == "YA":
+            if i == listNumber[len(listNumber)-1]:
+                break
+            continue
         webbrowser.open("https://wa.me/" + i + "?text=" + Pesan, new=0, autoraise= False)
         time.sleep(Jeda_Waktu-1)
         pyautogui.press('enter')
