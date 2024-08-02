@@ -27,16 +27,13 @@ pip install -r requirements.txt
 
 Edit File **config-wa-sender.txt**
 
-*Contoh:*
 ```bash
-PathFileNumber = "C:\bulk-wa\nomor.txt"
-Pesan = (
-Halo, Huda
-
-Gimana Kabarmu
-Semoga Sehat Selalu
-)
-Jeda_Waktu = "16"
+PathFileNumber = "PATH FILE TXT"
+Pesan = ("
+MASUKKAN PESAN DI ANTARA 2 KURUNG STRING INI
+")
+Jeda_Waktu = "JEDA DALAM FORMAT DETIK CUKUP MASUKKAN ANGKA SAJA"
+One_Sender = "CUKUP MASUKKAN YA/TIDAK"
 ```
 
 Jalankan program main.py dan tetap mengikuti alurnya.
