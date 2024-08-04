@@ -42,4 +42,5 @@ Jalankan program main.py dan tetap mengikuti alurnya.
 python main.py
 ```
 *Note: Sebelum menjalankan program pastikan kamu sudah membuka aplikasi whatsapp terlebih dahulu(bukan whatsapp web)*
-![Alt text](relative%20/storage/emulated/0/Download/20240730_043218.jpg?raw=true "Title")
+
+![alt text](https://drive.google.com/file/d/1AODLFDje6OAg_D9J8eWhxhdO-nAkJSWj/view?usp=drivesdk)
