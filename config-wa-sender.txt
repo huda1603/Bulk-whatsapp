@@ -1,13 +1,15 @@
-PathFileNumber = "PATH FILE TXT"
+PathFileNumber = "PATH FILE"
 Pesan = ("
 MASUKKAN PESAN DI ANTARA 2 KURUNG STRING INI
 ")
-Jeda_Waktu = "JEDA DALAM FORMAT DETIK CUKUP MASUKKAN ANGKA SAJA"
-One_Sender = "CUKUP MASUKKAN YA/TIDAK"
+Jeda_Waktu = "CUKUP MASUKKAN ANGKA SAJA"
+One_Sender = "YA/TIDAK"
 
-##MOHON BACA PETUNJUK TERLEBIH DAHULU##
+##MOHON BACA INI TERLEBIH DAHULU##
+
 #PathFileNumber:
-PathFileNumber adalah path file .txt yang berisi kumpulan nomor telepon. Pastikan nomor-nomor tersebut diawali dengan simbol '+' agar program dapat mengenalinya. contoh seperti ini +62 XXX-XXXX-XXX, atau juga bisa seperti ini +62XXXXXXXXXX.
+PathFileNumber adalah path file ".txt" yang berisi kumpulan nomor telepon. Pastikan nomor-nomor tersebut diawali dengan simbol '+' agar program dapat mengenalinya. contoh seperti ini +62 XXX-XXXX-XXX, atau juga bisa seperti ini +62XXXXXXXXXX.
+
 Jika file nomor dalam format CSV/Excel, cukup letakkan List Nomornya di kolom paling pertama(A) dan ubah ekstensi filenya menjadi .txt.
 
 #Pesan:
@@ -18,23 +20,31 @@ contoh:
 Pesan = ("
 Hi, Salam Kenal
 
-Perkenalkan Namaku Huda
+Perkenalkan Namaku ...
 
 Asal Dari ...
 ")
 
 #Jeda_Waktu:
 Jeda_Waktu adalah waktu jeda dalam format detik. Cukup masukkan angka saja untuk menentukan jeda antara pengiriman pesan ke nomor-nomor berikutnya.
-Contoh: jika kamu ingin memberikan jeda 16 detik, cukup masukkan angka 16.
-minimal jeda waktu adalah 15 detik, jika kamu memasukkan dibawah 15, maka tidak akan diterima program dan otomatis dialihkan menjadi default 15 detik.
+Contoh: jika kamu ingin memberikan jeda 16 detik, cukup masukkan angka "16".
+
+minimal jeda waktu adalah 15/13 detik tergantung masukan Opsi One_Sender kamu, jika kamu memasukkan dibawah 15/13, maka tidak akan diterima program dan otomatis dialihkan menjadi default 15/13 detik.
 
 #One_Sender:
-One_Sender adalah opsi untuk menentukan apakah pesan dikirimkan sekali atau diulang jika tidak muncul di text box chat WhatsApp saat pertama kali tautan dibuka.
+One_Sender adalah opsi untuk menentukan apakah pesan dikirimkan sekali atau diulang jika tidak muncul text pesan di text box chat WhatsApp ketika pertama kali tautan dibuka.
+
 Masukkan "YA" jika pesan yang kamu buat langsung muncul di text box chat WhatsApp saat tautan pertama kali dibuka.
+
 Masukkan "TIDAK" jika kamu ingin program mengulang tautan jika pesan tidak muncul di text box chat WhatsApp saat pertama kali tautan dibuka.
+
 cara menentukan OPSI YA/TIDAK:
 cobalah menekan tautan ini
-https://wa.me/62XXXXXXXXXX?text=Halo Tes <-- GANTI BAGIAN X NYA DENGAN NOMOR KAMU
+https://wa.me/62XXXXXXXXXX?text=Halo Tes <-- GANTI BAGIAN X NYA DENGAN NOMOR LENGKAP KAMU
+
 apakah setelah menekan tautan diatas, langsung muncul "Halo Tes" pada textbox whatsapp kamu?
-Jika ya kamu bisa memilih Opsi One_Sender = "YA", namun jika tidak sebaiknya kamu memilih TIDAK
+Jika ya kamu bisa memilih Opsi One_Sender = "YA", namun jika tidak sebaiknya kamu memilih Opsi TIDAK
 jadi untuk opsi TIDAK adalah program akan membuka tautan sebanyak 2 kali untuk 1 nomor, namun untuk total durasi jedanya tetap sama seperti yang kamu masukkan.
+
+Durasi Minimal Jeda Waktu ketika memilih Opsi YA = 13 detik, Sebaliknya Untuk Opsi TIDAK = 15 detik.
+Saran = Durasi Jeda Waktu Yang paling pas untuk Opsi TIDAK = 16 detik
