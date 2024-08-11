@@ -129,7 +129,7 @@ def main():
         JedaChangeTab, JedaAfterOpenWA, JedaAfterOpenWA2, JedaAfterENTER = onceSender(Jeda_Waktu, oneAuthenticationP)
     Pesan = pesanFull(pesan_list)
 
-    webbrowser.open("https://drive.google.com/file/d/1AODLFDje6OAg_D9J8eWhxhdO-nAkJSWj/view?usp=drivesdk", new=0, autoraise= False)
+    webbrowser.open("https://drive.google.com/file/d/1BAcPKpj8tlUqXinl__v7AnUKvPMG76-G/view?usp=drivesdk", new=0, autoraise= False)
     print(Fore.LIGHTRED_EX + "Jika Sudah Masuk Ke Halaman Browser, Tekan ENTER")
     input()
 
