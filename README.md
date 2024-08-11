@@ -25,18 +25,18 @@ pip install -r requirements.txt
 
 ## Penggunaan
 
-Edit File **config-wa-sender.txt**
+Buka File **config-wa-sender.txt** Dan Baca Petunjuknya Terlebih Dahulu, Lalu Ubah Pada Bagian Ini👇
 
 ```bash
-PathFileNumber = "PATH FILE TXT"
+PathFileNumber = "PATH FILE"
 Pesan = ("
 MASUKKAN PESAN DI ANTARA 2 KURUNG STRING INI
 ")
-Jeda_Waktu = "JEDA DALAM FORMAT DETIK CUKUP MASUKKAN ANGKA SAJA"
-One_Sender = "CUKUP MASUKKAN YA/TIDAK"
+Jeda_Waktu = "CUKUP MASUKKAN ANGKA SAJA"
+One_Sender = "YA/TIDAK"
 ```
 
-Jalankan program main.py dan tetap mengikuti alurnya.
+Jalankan program main.py dan tetap mengikuti arahan perintah programnya.
 
 ```bash
 python main.py
