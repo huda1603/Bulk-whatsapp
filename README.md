@@ -41,6 +41,3 @@ Jalankan program main.py dan tetap mengikuti alurnya.
 ```bash
 python main.py
 ```
-*Note: Sebelum menjalankan program pastikan kamu sudah membuka aplikasi whatsapp terlebih dahulu(bukan whatsapp web)*
-
-![alt text](https://drive.google.com/file/d/1AODLFDje6OAg_D9J8eWhxhdO-nAkJSWj/view?usp=drivesdk)
