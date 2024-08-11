@@ -35,13 +35,19 @@ def openFileNumber(listNumber):
 def onceSender(Jeda_Waktu, oneAuthenticationP):
     if oneAuthenticationP.upper() == "YA":
         JedaChangeTab = 2
-        JedaAfterOpenWA = int(Jeda_Waktu / JedaChangeTab)
+        JedaAfterOpenWA = int(Jeda_Waktu / 2)
         JedaAfterENTER = Jeda_Waktu - (JedaAfterOpenWA + (JedaChangeTab**2))
         return JedaChangeTab, JedaAfterOpenWA, JedaAfterENTER
     else:
         JedaChangeTab = 1
-        JedaAfterOpenWA = 5
-        return JedaChangeTab, JedaAfterOpenWA
+        JedaAfterOpenWA2 = 5
+        JedaAfterENTER = 1
+        if Jeda_Waktu >= 17:
+            JedaAfterOpenWA = (Jeda_Waktu - (JedaChangeTab*4)) - JedaAfterOpenWA2 - JedaAfterENTER - 2
+            JedaAfterENTER = 1 + 2
+        else:
+            JedaAfterOpenWA = (Jeda_Waktu - (JedaChangeTab*4)) - JedaAfterOpenWA2 - JedaAfterENTER
+        return JedaChangeTab, JedaAfterOpenWA, JedaAfterOpenWA2, JedaAfterENTER
 
 def configuration():
     print(Fore.CYAN + "Membaca Files config-wa-sender.txt...")
@@ -111,12 +117,16 @@ def main():
     listNumber, lengthNumber = openFileNumber(numberParsingConfig)
     Jeda_Waktu = int(Jeda_Waktu)
     if oneAuthenticationP.upper() == "YA":
+        if Jeda_Waktu < 13:
+            print(Fore.LIGHTBLUE_EX + "Jeda Waktu Dibawah Batas Min.13 Detik, Otomatis Diubah Default Menjadi 13 Detik")
+            Jeda_Waktu = 13
         JedaChangeTab, JedaAfterOpenWA, JedaAfterENTER = onceSender(Jeda_Waktu, oneAuthenticationP)
+        
     else:
-        JedaChangeTab, JedaAfterOpenWA = onceSender(Jeda_Waktu, oneAuthenticationP)
-    if Jeda_Waktu < 15:
-        print(Fore.LIGHTBLUE_EX + "Jeda Waktu Dibawah Batas Min.15 Detik, Otomatis Diubah Default Menjadi 15 Detik")
-        Jeda_Waktu = 15 - 9    
+        if Jeda_Waktu < 15:
+            print(Fore.LIGHTBLUE_EX + "Jeda Waktu Dibawah Batas Min.15 Detik, Otomatis Diubah Default Menjadi 15 Detik")
+            Jeda_Waktu = 15
+        JedaChangeTab, JedaAfterOpenWA, JedaAfterOpenWA2, JedaAfterENTER = onceSender(Jeda_Waktu, oneAuthenticationP)
     Pesan = pesanFull(pesan_list)
 
     webbrowser.open("https://drive.google.com/file/d/1AODLFDje6OAg_D9J8eWhxhdO-nAkJSWj/view?usp=drivesdk", new=0, autoraise= False)
@@ -142,15 +152,15 @@ def main():
                 break
             continue
         webbrowser.open("https://wa.me/" + i + "?text=" + Pesan, new=0, autoraise= False)
-        time.sleep(Jeda_Waktu-1)
+        time.sleep(JedaAfterOpenWA2)
         pyautogui.press('enter')
         print("Berhasil Mengirim!")
-        time.sleep(1)
+        time.sleep(JedaAfterENTER)
         pyautogui.hotkey(platforms[1], 'tab')
-        time.sleep(1)
+        time.sleep(JedaChangeTab)
         pyautogui.hotkey(platforms[0], 'w')
         print("Jeda Waktu...")
-        time.sleep(1)
+        time.sleep(JedaChangeTab)
     print(Fore.LIGHTRED_EX + "Program Selesai!")
     
 if __name__ == "__main__":
