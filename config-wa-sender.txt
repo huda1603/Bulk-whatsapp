@@ -34,16 +34,15 @@ minimal jeda waktu adalah 15/13 detik tergantung masukan Opsi One_Sender kamu, j
 #One_Sender:
 One_Sender adalah opsi untuk menentukan apakah pesan dikirimkan sekali atau diulang jika tidak muncul text pesan di text box chat WhatsApp ketika pertama kali tautan dibuka.
 
-Masukkan "YA" jika pesan yang kamu buat langsung muncul di text box chat WhatsApp saat tautan pertama kali dibuka.
-
-Masukkan "TIDAK" jika kamu ingin program mengulang tautan jika pesan tidak muncul di text box chat WhatsApp saat pertama kali tautan dibuka.
-
 cara menentukan OPSI YA/TIDAK:
 cobalah menekan tautan ini
 https://wa.me/62XXXXXXXXXX?text=Halo Tes <-- GANTI BAGIAN X NYA DENGAN NOMOR LENGKAP KAMU
 
 apakah setelah menekan tautan diatas, langsung muncul "Halo Tes" pada textbox whatsapp kamu?
 Jika ya kamu bisa memilih Opsi One_Sender = "YA", namun jika tidak sebaiknya kamu memilih Opsi TIDAK
+Untuk Contoh Kunjungi Link ini:
+https://drive.google.com/file/d/1B8eIKYLuft5xEbHhQjP8nSNHtyHuB2T5/view?usp=drivesdk
+
 jadi untuk opsi TIDAK adalah program akan membuka tautan sebanyak 2 kali untuk 1 nomor, namun untuk total durasi jedanya tetap sama seperti yang kamu masukkan.
 
 Durasi Minimal Jeda Waktu ketika memilih Opsi YA = 13 detik, Sebaliknya Untuk Opsi TIDAK = 15 detik.
