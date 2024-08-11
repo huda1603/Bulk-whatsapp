@@ -46,4 +46,4 @@ https://drive.google.com/file/d/1B8eIKYLuft5xEbHhQjP8nSNHtyHuB2T5/view?usp=drive
 jadi untuk opsi TIDAK adalah program akan membuka tautan sebanyak 2 kali untuk 1 nomor, namun untuk total durasi jedanya tetap sama seperti yang kamu masukkan.
 
 Durasi Minimal Jeda Waktu ketika memilih Opsi YA = 13 detik, Sebaliknya Untuk Opsi TIDAK = 15 detik.
-Saran = Durasi Jeda Waktu Yang paling pas untuk Opsi TIDAK = 16 detik
+Saran = Durasi Jeda Waktu Yang paling pas untuk Opsi TIDAK = 16/17 detik
